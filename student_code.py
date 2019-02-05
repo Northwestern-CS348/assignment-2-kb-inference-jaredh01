@@ -128,7 +128,38 @@ class KnowledgeBase(object):
         printv("Retracting {!r}", 0, verbose, [fact])
         ####################################################
         # Student code goes here
-        
+        if factq(fact):
+            f_ind = self.facts.index(fact)
+            fact = self.facts[f_ind]
+            fact.asserted = False
+            if (fact.supported_by == []):
+                self.facts.remove(fact)
+                for f in fact.supports_facts:
+                    for support in f.supported_by:
+                        if fact in support:
+                            f.supported_by.remove(support)
+                    self.kb_retract(f)
+                for r in fact.supports_rules:
+                    for support in r.supported_by:
+                        if fact in support:
+                            r.supported_by.remove(support)
+                    self.kb_retract_rule(r)  # PROBLEM: both f and r are added, so only removing f does not currently invalidate
+
+    def kb_retract_rule(self, rule):
+        if (rule.asserted == False and rule.supported_by == []):
+            self.rules.remove(rule)
+            for f in rule.supports_facts:
+                for support in f.supported_by:
+                        if rule in support:
+                            f.supported_by.remove(support)
+                self.kb_retract(f)
+            for r in rule.supports_rules:
+                for support in r.supported_by:
+                        if rule in support:
+                            r.supported_by.remove(support)
+                self.kb_retract_rule(rule)
+
+
 
 class InferenceEngine(object):
     def fc_infer(self, fact, rule, kb):
@@ -146,3 +177,31 @@ class InferenceEngine(object):
             [fact.statement, rule.lhs, rule.rhs])
         ####################################################
         # Student code goes here
+
+        r_ind = kb.rules.index(rule)
+        f_ind = kb.facts.index(fact)
+        first_rule = rule.lhs[0]
+        binding = match(fact.statement, first_rule)
+        #breakpoint()
+        if binding:
+            if( len(rule.lhs) == 1 ):
+                instantiated_rhs = instantiate(rule.rhs, binding)
+                
+                new_fact = Fact( instantiated_rhs, [[kb.facts[f_ind], kb.rules[r_ind]]])
+                kb.facts[f_ind].supports_facts.append(new_fact)
+                kb.rules[r_ind].supports_facts.append(new_fact)
+                kb.kb_add(new_fact) 
+            else:
+                instantiated_lst = []
+                for state in rule.lhs[1:]:
+                    instantiated_lst.append(instantiate(state, binding))
+                instantiated_rhs = instantiate(rule.rhs, binding)
+
+                new_rule = Rule( [instantiated_lst, instantiated_rhs], [[kb.facts[f_ind], kb.rules[r_ind]]] )
+                kb.facts[f_ind].supports_rules.append(new_rule)
+                kb.rules[r_ind].supports_rules.append(new_rule)
+                kb.kb_add(new_rule)
+
+
+
+
