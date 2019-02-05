@@ -154,6 +154,13 @@ class KnowledgeBase(object):
                 self.kb_retract_rule(r)
 
     def recursive_remove_support(self, target, to_remove):
+        if factq(target):
+            f_ind = self.facts.index(target)
+            target = self.facts[f_ind]
+        else:
+            r_ind = self.rules.index(target)
+            target =self.rules[r_ind]
+        breakpoint()
         for support in target.supported_by:
             if to_remove in support:
                 target.supported_by.remove(support)
