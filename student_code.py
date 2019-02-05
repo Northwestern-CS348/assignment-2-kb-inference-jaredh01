@@ -2,7 +2,7 @@ import read, copy
 from util import *
 from logical_classes import *
 
-verbose = 0
+verbose = 1
 
 class KnowledgeBase(object):
     def __init__(self, facts=[], rules=[]):
@@ -135,30 +135,32 @@ class KnowledgeBase(object):
             if (fact.supported_by == []):
                 self.facts.remove(fact)
                 for f in fact.supports_facts:
-                    for support in f.supported_by:
-                        if fact in support:
-                            f.supported_by.remove(support)
+                    self.recursive_remove_support(f, fact)
                     self.kb_retract(f)
                 for r in fact.supports_rules:
-                    for support in r.supported_by:
-                        if fact in support:
-                            r.supported_by.remove(support)
-                    self.kb_retract_rule(r)  # PROBLEM: both f and r are added, so only removing f does not currently invalidate
+                    self.recursive_remove_support(r, fact)
+                    self.kb_retract_rule(r)
 
     def kb_retract_rule(self, rule):
+        r_ind = self.rules.index(rule)
+        rule = self.rules[r_ind]
         if (rule.asserted == False and rule.supported_by == []):
             self.rules.remove(rule)
             for f in rule.supports_facts:
-                for support in f.supported_by:
-                        if rule in support:
-                            f.supported_by.remove(support)
+                self.recursive_remove_support(f, rule)
                 self.kb_retract(f)
             for r in rule.supports_rules:
-                for support in r.supported_by:
-                        if rule in support:
-                            r.supported_by.remove(support)
-                self.kb_retract_rule(rule)
+                self.recursive_remove_support(r,rule)
+                self.kb_retract_rule(r)
 
+    def recursive_remove_support(self, target, to_remove):
+        for support in target.supported_by:
+            if to_remove in support:
+                target.supported_by.remove(support)
+        for f in target.supports_facts:
+            self.recursive_remove_support(f, to_remove)
+        for r in target.supports_rules:
+            self.recursive_remove_support(r, to_remove)
 
 
 class InferenceEngine(object):
