@@ -1,0 +1,102 @@
+TESTS WITH ERRORS 
+test11 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 319, in test11
+    KB.kb_retract(fact5)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 138, in kb_retract
+    self.recursive_remove_support(f, fact)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+test13 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 370, in test13
+    KB.kb_retract(fact1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 141, in kb_retract
+    self.recursive_remove_support(r, fact)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+test14 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 399, in test14
+    KB.kb_retract(fact1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 141, in kb_retract
+    self.recursive_remove_support(r, fact)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+test4 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 83, in test4
+    KB.kb_retract(fact1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 141, in kb_retract
+    self.recursive_remove_support(r, fact)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+test5 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 121, in test5
+    KB.kb_retract(fact1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 141, in kb_retract
+    self.recursive_remove_support(r, fact)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+test9 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 258, in test9
+    KB.kb_retract(fact1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 141, in kb_retract
+    self.recursive_remove_support(r, fact)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 164, in recursive_remove_support
+    for support in target.supported_by:
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+-------------------------------
+TESTS FAILED  
+-------------------------------
+TESTS SKIPPED 
+-------------------------------
